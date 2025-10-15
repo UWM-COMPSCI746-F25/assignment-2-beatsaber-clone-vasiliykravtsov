@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://btksddm4qeqyc"]
+
+[ext_resource type="Script" uid="uid://ctc5gqv3udug2" path="res://Scripts/box_spawner.gd" id="1_8w5r8"]
+[ext_resource type="Material" uid="uid://i7pqaa2r8h44" path="res://Materials/blue.tres" id="2_ya3up"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcqy5"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="blue_box_spawner" type="Node3D"]
+script = ExtResource("1_8w5r8")
+
+[node name="BlueBox" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+collision_layer = 33
+collision_mask = 33
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BlueBox"]
+size = Vector3(0.5, 0.5, 0.5)
+material = ExtResource("2_ya3up")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlueBox"]
+shape = SubResource("BoxShape3D_vcqy5")

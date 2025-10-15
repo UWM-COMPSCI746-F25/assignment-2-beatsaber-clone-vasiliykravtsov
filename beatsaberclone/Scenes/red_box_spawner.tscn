@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq5ixufr3d0pa"]
+
+[ext_resource type="Material" uid="uid://dm5q82ua5gd28" path="res://Materials/red.tres" id="1_2bop2"]
+[ext_resource type="Script" uid="uid://ctc5gqv3udug2" path="res://Scripts/box_spawner.gd" id="1_mdv8j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mdv8j"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="red_box_spawner" type="Node3D"]
+script = ExtResource("1_mdv8j")
+
+[node name="RedBox" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RedBox"]
+size = Vector3(0.5, 0.5, 0.5)
+material = ExtResource("1_2bop2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RedBox"]
+shape = SubResource("BoxShape3D_mdv8j")
